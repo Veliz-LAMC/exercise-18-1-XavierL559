@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="styles/speaker.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="javascript/image_swap.js"></script>
+
+
+
 </head>
 
 <body>
@@ -15,6 +18,8 @@
     	<h2>San Joaquin Valley Town Hall</h2>
     	<h3>Celebrating our <span class="shadow">75<sup>th</sup></span> Year</h3>
 	</header>
+
+
 	<nav id="nav_menu">
     	<ul>
         	<li><a href="../index.html">Home</a></li>
@@ -31,25 +36,51 @@
         	</li>
     	</ul>
     </nav>
+
+
 	<main>
 		<section>
   			<h1>jQuery Image Swaps</h1>
   			<ul id="image_list">
-    			<li><a href="images/brancaccio_EEC.jpg" title="David Brancaccio">
-    				<img src="images/brancaccio75.jpg" alt=""></a></li>
-    			<li><a href="images/sorkin_desk260.jpg" title="Andrew Ross Sorkin">
-    				<img src="images/sorkin75.jpg" alt=""></a></li>
-    			<li><a href="images/chua_220.jpg" >
-    				<img src="images/chua75.jpg" alt=""></a></li>
-    			<li><a href="images/sampson_dinosaur.jpg" title="Scott Sampson">
-    				<img src="images/sampson75.jpg" alt=""></a></li>
+    			<li><a href="images/brancaccio_EEC.jpg" title=""></a>
+    				<img src="images/brancaccio75.jpg" alt="David Brancaccio" class="images"></a></li>
+    			<li><a href="images/sorkin_desk260.jpg" title=""></a>
+    				<img src="images/sorkin75.jpg" alt="Andrew Ross Sorkin" class="images"></a></li>
+    			<li><a href="images/chua_220.jpg"  title=""></a>
+    				<img src="images/chua75.jpg" alt="Amy Chua" class="images"></a></li>
+    			<li><a href="images/sampson_dinosaur.jpg" title=""></a>
+    				<img src="images/sampson75.jpg" alt="Scott Sampson" class="images"></a></li>
   			</ul>
-  			<h2>David Brancaccio</h2>
-  			<p><img src="images/brancaccio_EEC.jpg" alt=""></p>
+			
+  			<h1 class="textcaption">David Brancaccio</h1>
+  			<p><img src="images/brancaccio_EEC.jpg"  alt="David Brancaccio" class="thumbimg"></p>
+			
 		</section>
+		
 	</main>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.images').click(function(){
+			var $images = $(this).attr('src');
+			$('.thumbimg').attr('src', $images);
+			$('.thumbimg').attr('alt', this.alt);
+			$('.textcaption').text(this.alt);
+		});
+	});
+</script>
+
+
 	<footer>
-  		<p>&copy; 2016, San Joaquin Valley Town Hall, Fresno, CA 93755</p>
-	</footer>
+	<p>&copy; <span id="currentYr"></span>, San Joaquin Valley Town Hall, Fresno, CA 93755</p>
+  </footer>
+
+  <script>
+	  var date = new Date();
+	  var year = date.getFullYear();
+	  document.getElementById('currentYr').innerHTML = year
+  </script>
 </body>
 </html>
+
+
